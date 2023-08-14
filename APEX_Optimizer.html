@@ -1,0 +1,56 @@
+<template>
+    <lightning-card title="Apex Class AI Analyzer">
+        <lightning-combobox
+            label="Select an Apex Class"
+            value={selectedClass}
+            options={classOptions}
+            onchange={handleClassChange}>
+        </lightning-combobox>
+
+
+<!--<lightning-card title="ChatGPTTest">
+    <lightning-layout>
+        <lightning-layout-item size="12">
+            <label for="prompt">Enter your prompt:</label>
+            <br>
+        </br>
+            <textarea id="prompt" rows="4" onchange={handlePromptChange}></textarea>
+        </lightning-layout-item>
+    </lightning-layout> -->
+
+   
+    <lightning-layout>
+        <lightning-layout-item size="12">
+            <div class="submit-button-container">
+                <lightning-button label="Submit Request" onclick={sendRequest}></lightning-button>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</lightning-card>
+<template if:true={isWaiting}>
+    <lightning-card>
+        <lightning-layout>
+            <lightning-layout-item size="12">
+                <div class="spinner-container">
+                    <lightning-spinner variant="brand" alternative-text="Loading"></lightning-spinner>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
+
+<template if:true={response}>
+    <lightning-card>
+        <lightning-layout>
+            <lightning-layout-item size="12">
+                <div class="response-container">
+                    <lightning-icon icon-name="action:check"></lightning-icon>
+                    <h2>Response:</h2>
+                    
+                    <lightning-formatted-rich-text value={response}></lightning-formatted-rich-text>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
+</template>
