@@ -39,7 +39,7 @@ export default class ApexClassPicker extends LightningElement {
         this.isWaiting = true;
         
         const apiUrl = 'https://api.openai.com/v1/engines/davinci/completions'; // Correct API endpoint
-        const apiKey = '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'; // Replace with your actual API key
+        const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
     
         const headers = {
             'Content-Type': 'application/json',
